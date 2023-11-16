@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: 300px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.06);
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    font-size: 20px;
+    background: linear-gradient(to right, #ff5e62, #ff9966);
+    border: 0;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+}
+
+label {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.text-gray-600 {
+    color: #718096;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+    </style>
+</head>
+<body>
+    <form action="signup.php" method="post">
+        Username: <input type="text" name="username" pattern="[A-Za-z]{10,}" title="Username must be at least 10 characters long and should not contain any numbers or special characters" required><br>
+        Email: <input type="email" name="email" pattern=".+@(gmail\.com|yahoo\.com|manipal\.edu)$" title="Email must end with @gmail.com, @yahoo.com, or @manipal.edu" required><br>
+        Gender: 
+        <select name="gender" required>
+            <option value="">Select...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br>
+        DOB: <input type="date" name="dob" required><br>
+        College: <input type="text" name="college" required><br>
+        Password: <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[A-Z])(?=.*\w{2,}).*" title="Password must contain at least one uppercase letter, one number, and one character repeated twice side by side" required><br>
+        Confirm Password: <input type="password" id="confirm_password" name="confirm_password" required><br>
+        <div class="mb-4">
+            <label for="cache" class="block text-gray-600 text-sm font-medium mb-2">Cache</label>
+            <p id="cache" class="w-full p-2 border rounded"></p>
+        </div>
+        <div class="mb-4">
+            <label for="cacheAnswer" class="block text-gray-600 text-sm font-medium mb-2">Enter Cache</label>
+            <input type="text" id="cacheAnswer" name="cacheAnswer" class="w-full p-2 border rounded" required>
+        </div>
+        <input type="submit" value="Signup">
+    </form>
+    <script src="password_check.js"></script>
+    <script src="captcha.js"></script>
+</body>
+</html>
